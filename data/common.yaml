@@ -8,5 +8,7 @@ mcollective::site_policies:
 mcollective::plugin_classes:
   - mcollective_agent_bolt_tasks
 
+choria::manage_package_repo: true
+
 classes:
   - roles::%{facts.role}
