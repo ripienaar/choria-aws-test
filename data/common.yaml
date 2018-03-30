@@ -25,3 +25,5 @@ choria::manage_package_repo: true
 
 classes:
   - roles::%{facts.role}
+
+extra_packages: []
