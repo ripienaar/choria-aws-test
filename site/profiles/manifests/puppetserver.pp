@@ -31,6 +31,7 @@ class profiles::puppetserver {
     notify               => Class["puppetserver::config"]
   }
 
+  include puppetdb::globals
   include puppetdb
   include puppetdb::master::config
 }
