@@ -1,0 +1,6 @@
+cachedir: "/var/cache/r10k"
+
+sources:
+  choria_test:
+    remote: "file:///tmp/puppet.git"
+    basedir: "/etc/puppetlabs/code/environments"

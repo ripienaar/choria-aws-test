@@ -1,0 +1,24 @@
+#cloud-config
+
+system_info:
+  default_user:
+    name: choria
+    lock_passwd: true
+    gecos: Choria User
+    groups: [wheel, adm, systemd-journal]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+
+runcmd:
+  - "rpm -ivh http://yum.puppetlabs.com/puppet5/puppet-release-el-7.noarch.rpm"
+  - "yum -y install puppet-agent-${puppetagent} puppetserver-${puppetserver} puppetdb-${puppetdb} git"
+  - "ln -s /opt/puppetlabs/bin/puppet /opt/puppetlabs/bin/facter /opt/puppetlabs/bin/mco /usr/bin/"
+  - "puppet resource host puppet ensure=present ip=127.0.0.1"
+  - "echo '*' > /etc/puppetlabs/puppet/autosign.conf"
+  - "echo role=puppetserver > /opt/puppetlabs/facter/facts.d/role.txt"
+  - "/opt/puppetlabs/puppet/bin/gem install r10k --no-ri --no-rdoc"
+  - "puppet config set --section main waitforcert 10"
+  - "cd /tmp;git clone https://github.com/ripienaar/choria-aws-test.git"
+  - "cd /tmp/choria-aws-test; mkdir -p /etc/puppetlabs/r10k; cp r10k.yaml /etc/puppetlabs/r10k; /opt/puppetlabs/puppet/bin/r10k deploy environment -c r10k.yaml  --verbose --puppetfile"
+  - "systemctl start puppetserver.service"
+  - "systemctl start puppet.service"

@@ -1,0 +1,4 @@
+mcollective::client: true
+
+puppetdb::manage_firewall: false
+puppetdb::disable_update_checking: true

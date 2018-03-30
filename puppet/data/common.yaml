@@ -1,0 +1,12 @@
+mcollective::site_policies:
+  - action: "allow"
+    callers: "choria=choria.mcollective"
+    actions: "*"
+    facts: "*"
+    classes: "*"
+
+mcollective::plugin_classes:
+  - mcollective_agent_bolt_tasks
+
+classes:
+  - roles::%{facts.role}
