@@ -6,7 +6,7 @@ mcollective::site_policies:
     classes: "*"
 
 mcollective_choria::config:
-  srv_domain: "choria.local"
+  srv_domain: "choria.example.net"
 
 mcollective::plugin_classes:
   - mcollective_agent_bolt_tasks
