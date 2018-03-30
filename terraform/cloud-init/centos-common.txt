@@ -9,10 +9,6 @@ system_info:
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     shell: /bin/bash
 
-resolv_conf:
-  searchdomains: choria.local
-  domain: choria.local
-
 runcmd:
   - "hostname ${hostname}; echo ${hostname} > /etc/hostname"
   - "rpm -ivh http://yum.puppetlabs.com/puppet5/puppet-release-el-7.noarch.rpm"

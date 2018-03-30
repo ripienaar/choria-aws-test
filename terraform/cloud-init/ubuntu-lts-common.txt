@@ -9,10 +9,6 @@ system_info:
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     shell: /bin/bash
 
-resolv_conf:
-  searchdomains: choria.local
-  domain: choria.local
-
 runcmd:
   - "hostname ${hostname}; echo ${hostname} > /etc/hostname"
   - "cd /tmp; curl -O http://apt.puppetlabs.com/puppet5-release-xenial.deb; dpkg -i puppet5-release-xenial.deb; apt-get update"
