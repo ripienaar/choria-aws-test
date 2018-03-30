@@ -1,6 +1,8 @@
 ---
 version: 5
 hierarchy:
+  - name: "Per-os data (yaml version)"
+    path: "os/%{facts.operatingsystem}.yaml"
   - name: "Per-role data (yaml version)"
     path: "roles/%{facts.role}.yaml"
   - name: "Other YAML hierarchy levels"
