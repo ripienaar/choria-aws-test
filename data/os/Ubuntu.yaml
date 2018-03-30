@@ -1,3 +1,4 @@
 extra_packages:
   - g++
+  - make
 
