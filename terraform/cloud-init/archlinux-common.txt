@@ -1,0 +1,22 @@
+#cloud-config
+
+system_info:
+  default_user:
+    name: choria
+    lock_passwd: true
+    gecos: Choria User
+    groups: [wheel, adm, systemd-journal]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+
+resolv_conf:
+  searchdomains: choria.local
+  domain: choria.local
+
+runcmd:
+  - "hostname ${hostname}; echo ${hostname} > /etc/hostname"
+  - "mkdir -p /opt/puppetlabs/facter/facts.d; echo role=${role} > /opt/puppetlabs/facter/facts.d/role.txt"
+  - "pacman -Syu --noconfirm puppet"
+  - "puppet config set --section main waitforcert 10"
+  - "puppet config set --section main server puppet.choria.example.net"
+  - "systemctl start puppet.service"

@@ -22,7 +22,7 @@ variable "puppetagent-version" {
 
 variable "puppetdb-version" {
   description = "Version of PuppetDB to install"
-  default     = "5.1.4"
+  default     = "5.1.1"
 }
 
 variable "region" {
@@ -53,8 +53,31 @@ variable "choria_test_management_cidr" {
 
 /* https://wiki.centos.org/Cloud/AWS */
 variable "centos_amis" {
-  description = "Base AMI to launch the instances with"
+  description = "AMI for CentOS 7 based instances"
   default = {
     eu-central-1 = "ami-337be65c"
+  }
+}
+
+/* https://cloud-images.ubuntu.com/locator/ec2/ */
+variable "ubuntu_lts_amis" {
+  description = "AMI for Ubuntu Xenial based instances"
+  default = {
+    eu-central-1 = "ami-7c412f13"
+  }
+}
+
+/* https://wiki.debian.org/Cloud/AmazonEC2Image */
+variable "debian_stretch_amis" {
+  description = "AMI for Debian Stretch based instances"
+  default = {
+    eu-central-1 = "ami-6ef69f01"
+  }
+}
+
+variable "arch_amis" {
+  description = "AMI for ArchLinux based instances"
+  default = {
+    eu-central-1 = "ami-e56e3f0e"
   }
 }

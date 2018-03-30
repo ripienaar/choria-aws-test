@@ -1,0 +1,24 @@
+#cloud-config
+
+system_info:
+  default_user:
+    name: choria
+    lock_passwd: true
+    gecos: Choria User
+    groups: [wheel, adm, systemd-journal]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+
+resolv_conf:
+  searchdomains: choria.local
+  domain: choria.local
+
+runcmd:
+  - "hostname ${hostname}; echo ${hostname} > /etc/hostname"
+  - "cd /tmp; curl -O http://apt.puppetlabs.com/puppet5-release-xenial.deb; dpkg -i puppet5-release-xenial.deb; apt-get update"
+  - "apt-get install puppet-agent=${puppetagent}\\*"
+  - "ln -s /opt/puppetlabs/bin/puppet /opt/puppetlabs/bin/facter /opt/puppetlabs/bin/mco /usr/bin/"
+  - "mkdir -p /opt/puppetlabs/facter/facts.d; echo role=${role} > /opt/puppetlabs/facter/facts.d/role.txt"
+  - "/opt/puppetlabs/bin/puppet config set --section main waitforcert 10"
+  - "/opt/puppetlabs/bin/puppet config set --section main server puppet.choria.example.net"
+  - "systemctl start puppet.service"

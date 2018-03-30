@@ -10,6 +10,7 @@ system_info:
     shell: /bin/bash
 
 runcmd:
+  - "hostname ${hostname}; echo ${hostname} > /etc/hostname"
   - "rpm -ivh http://yum.puppetlabs.com/puppet5/puppet-release-el-7.noarch.rpm"
   - "yum -y install puppet-agent-${puppetagent} puppetserver-${puppetserver} git"
   - "ln -s /opt/puppetlabs/bin/puppet /opt/puppetlabs/bin/facter /opt/puppetlabs/bin/mco /usr/bin/"
@@ -22,4 +23,5 @@ runcmd:
   - "cd /tmp;git clone https://github.com/ripienaar/choria-aws-test.git"
   - "cd /tmp/choria-aws-test; mkdir -p /etc/puppetlabs/r10k; cp -f r10k.yaml /etc/puppetlabs/r10k; /opt/puppetlabs/puppet/bin/r10k deploy environment -c r10k.yaml  --verbose --puppetfile"
   - "systemctl start puppetserver.service"
+  - "puppet agent --test"
   - "systemctl start puppet.service"
