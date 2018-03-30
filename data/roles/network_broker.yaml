@@ -1,5 +1,5 @@
 choria::broker::network_broker: true
 choria::broker::network_peers:
-  - choria1.choria.local:5222
-  - choria2.choria.local:5222
-  - choria3.choria.local:5222
+  - nats://choria1.choria.local:5222
+  - nats://choria2.choria.local:5222
+  - nats://choria3.choria.local:5222
