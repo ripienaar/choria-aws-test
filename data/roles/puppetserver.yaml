@@ -2,4 +2,4 @@ mcollective::client: true
 
 puppetdb::manage_firewall: false
 puppetdb::disable_update_checking: true
-puppetdb::globals::version: "%{facts.puppetdb_version}-el%{facts.os.release.major}"
+puppetdb::globals::version: "-1.%{facts.puppetdb_version}-el%{facts.os.release.major}"
