@@ -19,6 +19,6 @@ runcmd:
   - "/opt/puppetlabs/puppet/bin/gem install r10k --no-ri --no-rdoc"
   - "puppet config set --section main waitforcert 10"
   - "cd /tmp;git clone https://github.com/ripienaar/choria-aws-test.git"
-  - "cd /tmp/choria-aws-test; mkdir -p /etc/puppetlabs/r10k; cp r10k.yaml /etc/puppetlabs/r10k; /opt/puppetlabs/puppet/bin/r10k deploy environment -c r10k.yaml  --verbose --puppetfile"
+  - "cd /tmp/choria-aws-test/puppet; mkdir -p /etc/puppetlabs/r10k; cp r10k.yaml /etc/puppetlabs/r10k; /opt/puppetlabs/puppet/bin/r10k deploy environment -c r10k.yaml  --verbose --puppetfile"
   - "systemctl start puppetserver.service"
   - "systemctl start puppet.service"
