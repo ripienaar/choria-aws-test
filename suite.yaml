@@ -2,8 +2,13 @@ suites:
   - cspec::discovery
   - cspec::choria
   - cspec::agents::shell
+  - cspec::agents::process
+  - cspec::agents::nettest
 
 choria.version: mcollective plugin 0.7.0
+
+nettest.fqdn: puppet.choria.example.net
+nettest.port: 8140
 
 discovery.all_nodes:
   - archlinux1.choria.example.net
