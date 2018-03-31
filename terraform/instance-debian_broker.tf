@@ -3,7 +3,7 @@ resource "template_file" "debian_broker_init" {
   vars {
     puppetagent = "${var.puppetagent-version}"
     role = "network_broker"
-    hostname = "choria3.choria.example.net"
+    hostname = "debian9.choria.example.net"
   }
 }
 
@@ -32,7 +32,7 @@ output "debian_broker" {
 
 resource "aws_route53_record" "choria3" {
   zone_id = "${aws_route53_zone.choria_local.zone_id}"
-  name    = "choria3.choria.example.net"
+  name    = "debian9.choria.example.net"
   type    = "A"
   ttl     = "600"
   records = ["${aws_instance.debian_broker.private_ip}"]

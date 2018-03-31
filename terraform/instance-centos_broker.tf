@@ -3,7 +3,7 @@ resource "template_file" "centos_broker_init" {
   vars {
     puppetagent = "${var.puppetagent-version}"
     role = "network_broker"
-    hostname = "choria1.choria.example.net"
+    hostname = "centos7.choria.example.net"
   }
 }
 
@@ -32,7 +32,7 @@ output "centos_broker" {
 
 resource "aws_route53_record" "choria1" {
   zone_id = "${aws_route53_zone.choria_local.zone_id}"
-  name    = "choria1.choria.example.net"
+  name    = "centos7.choria.example.net"
   type    = "A"
   ttl     = "600"
   records = ["${aws_instance.centos_broker.private_ip}"]

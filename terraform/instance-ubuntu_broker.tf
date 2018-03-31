@@ -3,7 +3,7 @@ resource "template_file" "ubuntu_broker_init" {
   vars {
     puppetagent = "${var.puppetagent-version}"
     role = "network_broker"
-    hostname = "choria2.choria.example.net"
+    hostname = "ubuntu16.choria.example.net"
   }
 }
 
@@ -32,7 +32,7 @@ output "ubuntu_broker" {
 
 resource "aws_route53_record" "choria2" {
   zone_id = "${aws_route53_zone.choria_local.zone_id}"
-  name    = "choria2.choria.example.net"
+  name    = "ubuntults.choria.example.net"
   type    = "A"
   ttl     = "600"
   records = ["${aws_instance.ubuntu_broker.private_ip}"]

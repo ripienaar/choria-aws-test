@@ -17,8 +17,8 @@ resource "aws_route53_record" "broker_srv" {
   type    = "SRV"
   ttl     = "600"
   records = [
-    "10  0 4222  choria1.choria.example.net.",
-    "10  0 4222  choria2.choria.example.net.",
-    "10  0 4222  choria3.choria.example.net."
+    "10 0 4222 centos7.choria.example.net.",
+    "10 0 4222 debian9.choria.example.net.",
+    "10 0 4222 ubuntu16.choria.example.net."
   ]
 }

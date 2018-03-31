@@ -1,0 +1,25 @@
+suites:
+  - acme::discovery
+  - acme::choria
+
+choria.version: mcollective plugin 0.7.0
+
+discovery.all_nodes:
+  - archlinux1.choria.example.net
+  - centos7.choria.example.net
+  - debian9.choria.example.net
+  - puppet.choria.example.net
+  - ubuntu16.choria.example.net
+
+discovery.mcollective_nodes:
+  - archlinux1.choria.example.net
+  - centos7.choria.example.net
+  - debian9.choria.example.net
+  - puppet.choria.example.net
+  - ubuntu16.choria.example.net
+
+discovery.filtered_nodes:
+  - centos7.choria.example.net
+  - puppet.choria.example.net
+
+discovery.fact_filter: operatingsystem=CentOS
