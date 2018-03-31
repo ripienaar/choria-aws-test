@@ -12,10 +12,10 @@ plan cspec::suite (
 
   cspec::clear_report($report)
 
-  $suites = choria::data("suites", $ds)
-
+  notice("Performing pre flight tasks")
   choria::run_playbook("cspec::pre_flight", ds => $ds)
 
+  $suites = choria::data("suites", $ds)
   notice(sprintf("Running test suites: %s", $suites.join(", ")))
 
   choria::data("suites", $ds).each |$suite| {
@@ -26,6 +26,7 @@ plan cspec::suite (
     )
   }
 
+  notice("Performing post flight tasks")
   choria::run_playbook("cspec::pre_flight", ds => $ds)
 
   undef

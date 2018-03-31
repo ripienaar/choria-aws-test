@@ -2,10 +2,11 @@ plan cspec::pre_flight (
   Hash $ds,
 ) {
   choria::task(
-    action       => "puppet.runonce",
-    nodes        => choria::data("discovery.all_nodes", $ds),
-    properties   => {
-      "force"    => true
+    action     => "puppet.runonce",
+    nodes      => choria::data("discovery.all_nodes", $ds),
+    silent     => true,
+    properties => {
+      "force"  => true
     }
   )
 
