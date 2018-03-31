@@ -20,7 +20,7 @@ plan cspec::suite (
     report => $report
   )
     .choria::on_error |$err| {
-      notice("Test suite failed with a critical error: ${err.message}")
+      err("Test suite failed with a critical error: ${err.message}")
     }
 
   choria::run_playbook("cspec::post_flight", ds => $ds)
