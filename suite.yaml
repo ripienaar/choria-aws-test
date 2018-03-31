@@ -1,6 +1,6 @@
 suites:
-  - acme::discovery
-  - acme::choria
+  - cspec::discovery
+  - cspec::choria
 
 choria.version: mcollective plugin 0.7.0
 

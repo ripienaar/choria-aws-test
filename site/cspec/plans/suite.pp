@@ -12,7 +12,6 @@ plan cspec::suite (
 
   cspec::clear_report($report)
 
-  notice("Performing pre flight tasks")
   choria::run_playbook("cspec::pre_flight", ds => $ds)
 
   choria::run_playbook("cspec::perform_tests", _catch_errors => true,
@@ -24,8 +23,7 @@ plan cspec::suite (
       notice("Test suite failed with a critical error: ${err.message}")
     }
 
-  notice("Performing post flight tasks")
   choria::run_playbook("cspec::post_flight", ds => $ds)
 
-  undef
+  cspec::summarize_report($report)
 }
