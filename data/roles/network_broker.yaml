@@ -1,5 +1,5 @@
 choria::broker::network_broker: true
 choria::broker::network_peers:
-  - nats://centos7.choria.example.net:4222
-  - nats://debian9.choria.example.net:4222
-  - nats://ubuntu16.choria.example.net:4222
+  - nats://centos7.choria.example.net:4223
+  - nats://debian9.choria.example.net:4223
+  - nats://ubuntu16.choria.example.net:4223
