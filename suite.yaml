@@ -1,6 +1,7 @@
 suites:
   - cspec::discovery
   - cspec::choria
+  - cspec::agents::shell
 
 choria.version: mcollective plugin 0.7.0
 

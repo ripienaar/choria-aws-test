@@ -1,5 +1,6 @@
 plan cspec::suite (
   Boolean $fail_fast = false,
+  Boolean $pre_post = true,
   Stdlib::Absolutepath $report,
   String $data
 ) {
@@ -11,9 +12,11 @@ plan cspec::suite (
 
   cspec::clear_report($report)
 
-  choria::run_playbook("cspec::pre_flight", ds => $ds)
+  if $pre_post {
+    choria::run_playbook("cspec::pre_flight", ds => $ds)
+  }
 
-  choria::run_playbook("cspec::perform_tests", _catch_errors => true,
+  choria::run_playbook("cspec::run_suites", _catch_errors => true,
     ds => $ds,
     fail_fast => $fail_fast,
     report => $report
@@ -22,7 +25,9 @@ plan cspec::suite (
       err("Test suite failed with a critical error: ${err.message}")
     }
 
-  choria::run_playbook("cspec::post_flight", ds => $ds)
+  if $pre_post {
+    choria::run_playbook("cspec::post_flight", ds => $ds)
+  }
 
   cspec::summarize_report($report)
 }

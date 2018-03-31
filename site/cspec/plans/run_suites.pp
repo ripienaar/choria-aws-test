@@ -1,4 +1,4 @@
-plan cspec::perform_tests (
+plan cspec::run_suites (
   Hash $ds,
   Boolean $fail_fast = false,
   Stdlib::Absolutepath $report,
