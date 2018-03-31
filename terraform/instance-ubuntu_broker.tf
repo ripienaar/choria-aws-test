@@ -32,7 +32,7 @@ output "ubuntu_broker" {
 
 resource "aws_route53_record" "choria2" {
   zone_id = "${aws_route53_zone.choria_local.zone_id}"
-  name    = "ubuntults.choria.example.net"
+  name    = "ubuntu16.choria.example.net"
   type    = "A"
   ttl     = "600"
   records = ["${aws_instance.ubuntu_broker.private_ip}"]
