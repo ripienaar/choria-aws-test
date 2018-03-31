@@ -1,4 +1,5 @@
 plan cspec::perform_tests (
+  Hash $ds,
   Boolean $fail_fast = false,
   Stdlib::Absolutepath $report,
 ) {

@@ -17,7 +17,8 @@ plan cspec::suite (
 
   choria::run_playbook("cspec::perform_tests", _catch_errors => true,
     ds => $ds,
-    report => $report,
+    fail_fast => $fail_fast,
+    report => $report
   )
     .choria::on_error |$err| {
       notice("Test suite failed with a critical error: ${err.message}")
