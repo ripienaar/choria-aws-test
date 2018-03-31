@@ -15,6 +15,10 @@ mcollective::plugin_classes:
   - mcollective_agent_nettest
   - mcollective_agent_bolt_tasks
 
+mcollective_agent_puppet::gem_dependencies:
+    "net-ping": "2.0.2"
+    "jgrep": "1.5.0"
+
 mcollective_agent_nettest::gem_dependencies:
     "net-ping": "2.0.2"
 
