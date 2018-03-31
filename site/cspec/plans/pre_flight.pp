@@ -1,7 +1,9 @@
 plan cspec::pre_flight (
   Hash $ds,
 ) {
+  notice("===")
   notice("Performing pre flight tasks")
+  notice("===")
 
   $nodes = choria::data("discovery.all_nodes", $ds)
 
