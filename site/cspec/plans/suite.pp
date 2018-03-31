@@ -27,7 +27,7 @@ plan cspec::suite (
   }
 
   notice("Performing post flight tasks")
-  choria::run_playbook("cspec::pre_flight", ds => $ds)
+  choria::run_playbook("cspec::post_flight", ds => $ds)
 
   undef
 }
