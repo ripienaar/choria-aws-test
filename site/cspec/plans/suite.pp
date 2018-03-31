@@ -15,16 +15,13 @@ plan cspec::suite (
   notice("Performing pre flight tasks")
   choria::run_playbook("cspec::pre_flight", ds => $ds)
 
-  $suites = choria::data("suites", $ds)
-  notice(sprintf("Running test suites: %s", $suites.join(", ")))
-
-  choria::data("suites", $ds).each |$suite| {
-    choria::run_playbook($suite,
-      ds => $ds,
-      fail_fast => $fail_fast,
-      report => $report
-    )
-  }
+  choria::run_playbook("cspec::perform_tests", _catch_errors => true,
+    ds => $ds,
+    report => $report,
+  )
+    .choria::on_error |$err| {
+      notice("Test suite failed with a critical error: ${err.message}")
+    }
 
   notice("Performing post flight tasks")
   choria::run_playbook("cspec::post_flight", ds => $ds)
