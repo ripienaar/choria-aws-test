@@ -6,8 +6,7 @@ plan cspec::suite (
   $ds = {
     "type"   => "file",
     "file"   => $data,
-    "format" => "yaml",
-    "create" => true
+    "format" => "yaml"
   }
 
   cspec::clear_report($report)
