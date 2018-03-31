@@ -13,6 +13,7 @@ plan cspec::agents::process (
       $results = choria::task("mcollective", _catch_errors => true,
         "action" => "process.list",
         "nodes" => $nodes,
+        "silent" => true,
         "properties" => {
           "pattern" => "mcollectived"
         }

@@ -19,7 +19,7 @@ module PuppetX
           return true
         end
 
-        failure("assert_equal: %s" % result.host, "%s\n\n\tis not equal to\n\n %s" % [left, right])
+        failure("assert_task_data_equals: %s" % result.host, "%s\n\n\tis not equal to\n\n %s" % [left, right])
 
         return false
       end
