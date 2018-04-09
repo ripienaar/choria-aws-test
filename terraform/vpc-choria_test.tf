@@ -25,7 +25,7 @@ resource "aws_route53_record" "broker_srv" {
 
 resource "aws_route53_record" "federation_srv" {
   zone_id = "${aws_route53_zone.choria_local.zone_id}"
-  name    = "_mcollective-federation_server._tc.choria.example.net"
+  name    = "_mcollective-federation_server._tcp.choria.example.net"
   type    = "SRV"
   ttl     = "600"
   records = [

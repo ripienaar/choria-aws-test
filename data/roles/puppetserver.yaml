@@ -9,5 +9,5 @@ mcollective_agent_puppet::gem_dependencies:
 
 mcollective::client_config:
   "plugin.choria.federation.collectives": "testing"
-  "plugin.choria.middleware_hosts": "puppet.choria.example.net"
+  "plugin.choria.middleware_hosts": "puppet.choria.example.net:4222"
 
