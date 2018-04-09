@@ -6,20 +6,23 @@ plan cspec::agents::process (
   $nodes = choria::data("discovery.all_nodes", $ds)
 
   cspec::suite("process agent tests", $fail_fast, $report) |$suite| {
-    # I'd like to test the data contains actual correct data but this
-    # data is not JSON safe and so not compatible with puppet at all
-    # something to fix in the agent
     $suite.it("Should get process list") |$t| {
       $results = choria::task("mcollective", _catch_errors => true,
         "action" => "process.list",
         "nodes" => $nodes,
         "silent" => true,
+        "fact_filter" => ["kernel=Linux"],
         "properties" => {
           "pattern" => "mcollectived"
         }
       )
 
       $t.assert_task_success($results)
+
+      $results.each |$result| {
+        $t.assert_task_data_equals($result, $result["data"]["pslist"].length > 0, true)
+        $t.assert_task_data_equals($result, $result["data"]["pslist"][0]["cmdline"] =~ /mcollectived/, true)
+      }
     }
   }
 

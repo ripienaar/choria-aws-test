@@ -3,6 +3,7 @@ suites:
   - cspec::choria
   - cspec::agents::shell
   - cspec::agents::process
+  - cspec::agents::filemgr
   - cspec::agents::nettest
 
 choria.version: mcollective plugin 0.7.0

@@ -1,3 +1,6 @@
+choria::broker::federation_broker: true
+choria::broker::federation_cluster: testing
+
 choria::broker::network_broker: true
 choria::broker::network_peers:
   - nats://centos7.choria.example.net:4223

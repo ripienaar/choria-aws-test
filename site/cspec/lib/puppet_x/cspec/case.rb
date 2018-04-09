@@ -20,8 +20,6 @@ module PuppetX
         end
 
         failure("assert_task_data_equals: %s" % result.host, "%s\n\n\tis not equal to\n\n %s" % [left, right])
-
-        return false
       end
 
       def assert_task_success(results)
@@ -37,14 +35,12 @@ module PuppetX
 
       def assert_equal(left, right)
         if left == right
-          success("assert_equal", "values matches")
+          success("assert_equal", "values match")
 
           return true
         end
 
         failure("assert_equal", "%s\n\n\tis not equal to\n\n %s" % [left, right])
-
-        return false
       end
 
       def puppet_file_line
@@ -74,7 +70,7 @@ module PuppetX
           "message" => message
         }
 
-        Puppet.err("✘ %s: %s" % [what, @description])
+        Puppet.err("✘ %s: %s (%s)" % [what, @description, puppet_file_line.join(":")])
         Puppet.err(message)
 
         raise(Puppet::Error, "Test case %s fast failed: %s" % [@description, what]) if @suite.fail_fast

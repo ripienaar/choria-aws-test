@@ -3,3 +3,5 @@ terraform.tfstate*
 .terraform
 .*lock*
 report.json
+devco-suite.yaml
+*.swp

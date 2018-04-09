@@ -11,6 +11,7 @@ plan cspec::discovery::test (
     $suite.it("Should support a basic discovery") |$t| {
       $found = choria::discover(
         "discovery_method" => $method,
+        "facts" => ["kernel=Linux"]
       )
 
       $t.assert_equal($found.sort, $all_nodes.sort)
@@ -19,7 +20,8 @@ plan cspec::discovery::test (
     $suite.it("Should support testing connectivity") |$t| {
       $found = choria::discover(
         "discovery_method" => $method,
-        "test"             => true,
+        "test" => true,
+        "facts" => ["kernel=Linux"]
       )
 
       $t.assert_equal($found.sort, $all_nodes.sort)
@@ -28,7 +30,7 @@ plan cspec::discovery::test (
     $suite.it("Should support fact filters") |$t| {
       $found = choria::discover(
         "discovery_method" => $method,
-        "facts"            => [$fact_filter]
+        "facts" => [$fact_filter, "kernel=Linux"]
       )
 
       $t.assert_equal($found.sort, $filtered_nodes.sort)
@@ -37,7 +39,8 @@ plan cspec::discovery::test (
     $suite.it("Should support class filters") |$t| {
       $found = choria::discover(
         "discovery_method" => $method,
-        "classes"          => ["mcollective"]
+        "classes" => ["mcollective"],
+        "facts" => ["kernel=Linux"]
       )
 
       $t.assert_equal($found.sort, $mcollective_nodes.sort)

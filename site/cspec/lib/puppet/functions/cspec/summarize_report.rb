@@ -18,7 +18,7 @@ Puppet::Functions.create_function(:"cspec::summarize_report") do
 
     {
        "testsuites" => suites,
-       "success" => data.all? {|d| d["success"] }
+       "success" => data.all? {|d| d["success"] },
     }
   end
 end

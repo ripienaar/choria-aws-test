@@ -10,6 +10,7 @@ plan cspec::agents::shell (
       $results = choria::task("mcollective", _catch_errors => true,
         "action" => "shell.run",
         "nodes" => $nodes,
+        "silent" => true,
         "properties" => {
           "command" => "echo cspec test"
         }

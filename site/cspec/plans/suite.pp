@@ -21,8 +21,8 @@ plan cspec::suite (
     fail_fast => $fail_fast,
     report => $report
   )
-    .choria::on_error |$err| {
-      err("Test suite failed with a critical error: ${err.message}")
+    .choria::on_error |Choria::TaskResults $error| {
+      fail(sprintf("Test suite failed with a critical error: %s", $error.message))
     }
 
   if $pre_post {

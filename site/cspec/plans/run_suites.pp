@@ -4,7 +4,7 @@ plan cspec::run_suites (
   Stdlib::Absolutepath $report,
 ) {
   $suites = choria::data("suites", $ds)
-  notice(sprintf("Running test suites: %s", $suites.join(", ")))
+  notice(sprintf("Running test suites:\n\t%s", $suites.join("\n\t")))
 
   choria::data("suites", $ds).each |$suite| {
     choria::run_playbook($suite,
