@@ -12,17 +12,17 @@ variable "ssh_key" {
 
 variable "puppetserver-version" {
   description = "Version of Puppet Server to install"
-  default     = "5.3.0"
+  default     = "5.3.1"
 }
 
 variable "puppetagent-version" {
   description = "Version of Puppet Agent to install"
-  default     = "5.4.0"
+  default     = "5.5.1"
 }
 
 variable "puppetdb-version" {
   description = "Version of PuppetDB to install"
-  default     = "5.1.1"
+  default     = "5.2.2"
 }
 
 variable "region" {
