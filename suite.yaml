@@ -29,4 +29,6 @@ discovery.filtered_nodes:
   - centos7.choria.example.net
   - puppet.choria.example.net
 
-discovery.fact_filter: operatingsystem=CentOS
+discovery.fact_filter:
+  - operatingsystem=CentOS
+  - operatingsystem=/entO/
