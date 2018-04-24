@@ -6,7 +6,7 @@ suites:
   - cspec::agents::filemgr
   - cspec::agents::nettest
 
-choria.version: mcollective plugin 0.7.0
+choria.version: mcollective plugin 0.8.0
 
 nettest.fqdn: puppet.choria.example.net
 nettest.port: 8140
